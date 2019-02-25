@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0b5a70e-7576-4a4c-b7ef-3849b7e83216" name="Default Changelist" comment="" />
+    <list default="true" id="a0b5a70e-7576-4a4c-b7ef-3849b7e83216" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/loginModule/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/loginModule/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginModule/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/loginModule/templates/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginModule/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/loginModule/views.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +17,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loginModule/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+            <state relative-caret-position="170">
+              <caret line="10" column="86" lean-forward="true" selection-start-line="10" selection-start-column="86" selection-end-line="10" selection-end-column="86" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -37,7 +41,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CRM_software/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-131">
+            <state relative-caret-position="17">
               <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
             </state>
           </provider>
@@ -52,7 +56,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loginModule/forms.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -67,17 +71,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loginModule/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="93" lean-forward="true" selection-start-line="7" selection-start-column="93" selection-end-line="7" selection-end-column="93" />
+            <state relative-caret-position="136">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/loginModule/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="223">
+              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -88,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loginModule/templates/signup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="16" selection-start-line="16" selection-end-line="17" />
+            <state relative-caret-position="359">
+              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -97,7 +101,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loginModule/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
+            <state relative-caret-position="51">
               <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -128,13 +132,13 @@
         <option value="$PROJECT_DIR$/CRM_software/__init__.py" />
         <option value="$PROJECT_DIR$/loginModule/templates/base.html" />
         <option value="$PROJECT_DIR$/CRM_software/settings.py" />
-        <option value="$PROJECT_DIR$/loginModule/templates/signup.html" />
         <option value="$PROJECT_DIR$/loginModule/forms.py" />
         <option value="$PROJECT_DIR$/loginModule/urls.py" />
-        <option value="$PROJECT_DIR$/loginModule/views.py" />
         <option value="$PROJECT_DIR$/loginModule/templates/home.html" />
         <option value="$PROJECT_DIR$/loginModule/admin.py" />
         <option value="$PROJECT_DIR$/loginModule/models.py" />
+        <option value="$PROJECT_DIR$/loginModule/templates/signup.html" />
+        <option value="$PROJECT_DIR$/loginModule/views.py" />
       </list>
     </option>
   </component>
@@ -156,35 +160,6 @@
               <item name="CRM_software" type="b2602c69:ProjectViewProjectNode" />
               <item name="CRM_software" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="CRM_software" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CRM_software" type="462c0819:PsiDirectoryNode" />
-              <item name="CRM_software" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CRM_software" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CRM_software" type="462c0819:PsiDirectoryNode" />
-              <item name="loginModule" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CRM_software" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CRM_software" type="462c0819:PsiDirectoryNode" />
-              <item name="loginModule" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CRM_software" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CRM_software" type="462c0819:PsiDirectoryNode" />
-              <item name="loginModule" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="loginModule" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CRM_software" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CRM_software" type="462c0819:PsiDirectoryNode" />
-              <item name="loginModule" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -198,15 +173,15 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\hp\OneDrive\Documents\djangoProject\CRM_software\loginModule\static\loginModule" />
-      <recent name="C:\Users\hp\OneDrive\Documents\djangoProject\CRM_software\loginModule" />
-      <recent name="C:\Users\hp\OneDrive\Documents\djangoProject\CRM_software" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hp\OneDrive\Documents\djangoProject\CRM_software\static\loginModule" />
       <recent name="C:\Users\hp\OneDrive\Documents\djangoProject\CRM_software\loginModule\templates" />
       <recent name="C:\Users\hp\OneDrive\Documents\djangoProject\CRM_software\loginModule\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hp\OneDrive\Documents\djangoProject\CRM_software\loginModule\static\loginModule" />
+      <recent name="C:\Users\hp\OneDrive\Documents\djangoProject\CRM_software\loginModule" />
+      <recent name="C:\Users\hp\OneDrive\Documents\djangoProject\CRM_software" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -238,25 +213,6 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.14136904" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3289689" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14136904" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -274,7 +230,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
+    </layout>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/loginModule/__init__.py">
@@ -319,13 +275,6 @@
     <entry file="file://$PROJECT_DIR$/loginModule/static/loginModule/style.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/CRM_software/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-131">
-          <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/loginModule/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -333,27 +282,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loginModule/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="93" lean-forward="true" selection-start-line="7" selection-start-column="93" selection-end-line="7" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginModule/templates/signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="16" selection-start-line="16" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/loginModule/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
+        <state relative-caret-position="51">
           <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginModule/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CRM_software/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -369,30 +321,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/loginModule/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        <state relative-caret-position="170">
+          <caret line="10" column="86" lean-forward="true" selection-start-line="10" selection-start-column="86" selection-end-line="10" selection-end-column="86" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loginModule/views.py">
+    <entry file="file://$PROJECT_DIR$/loginModule/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loginModule/forms.py">
+    <entry file="file://$PROJECT_DIR$/loginModule/templates/signup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="359">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginModule/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>

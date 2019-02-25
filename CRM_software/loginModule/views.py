@@ -18,9 +18,10 @@ def register (request):
 	if request.method=='POST':
 		form=SignUpForm(request.POST)
 		if form.is_valid():
-			
+			user_type = request.POST.get('user_type','')
 			form.save()
-
+			u = UserType(user_type=user_type)
+			u.save
 			return render(request,'home.html')
 	else:
 		form = SignUpForm()
