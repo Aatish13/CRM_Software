@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<style>
+
+.container {
+  padding: 16px;
+}
+/* The Modal (background) */
+
+  /* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+</style>
+<center>
+  <h2>Sign up</h2>
+</center>
+<form method="post" class="modal-content">
+    {% csrf_token %}
+     <div class="container">
+    {{ form.as_p }}
+
+    <div class="clearfix">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+     </div>
+  </form>
+{% endblock %}
