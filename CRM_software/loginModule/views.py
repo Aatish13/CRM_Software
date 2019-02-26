@@ -5,8 +5,11 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render_to_response
 from loginModule.models import UserType
+
+
 def home(request):
 	return render_to_response('home.html')
+
 
 # class SignUp(generic.CreateView):
 #     form_class = SignUpForm
@@ -19,9 +22,11 @@ def register (request):
 		form=SignUpForm(request.POST)
 		if form.is_valid():
 			user_type = request.POST.get('user_type','')
+			user_name = request.POST.get('username', '')
+			print(user_name,user_type)
 			form.save()
-			u = UserType(user_type=user_type)
-			u.save
+			u = UserType(user_type=user_type,user_name=user_name)
+			u.save()
 			return render(request,'home.html')
 	else:
 		form = SignUpForm()

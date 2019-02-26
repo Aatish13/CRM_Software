@@ -3,6 +3,7 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+
  <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">C R M Software</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +24,8 @@
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li>
     </ul>
-      <form class="form-inline" action="signup.html"> {% csrf_token %}
+
+      <form align="right" class="form-inline" action="signup.html"> {% csrf_token %}
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Signup</button>
     </form>
   </div>

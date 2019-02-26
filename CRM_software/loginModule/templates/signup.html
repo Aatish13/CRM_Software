@@ -25,9 +25,19 @@
     {% csrf_token %}
      <div class="container">
     {{ form.as_p }}
-    <input type="text" name="user_type"/>
+
+         <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">User Type</label>
+            </div>
+             <select class="custom-select" id="inputGroupSelect01" name="user_type">
+                <option value="employee">Employee</option>
+                <option value="manager">Manager</option>
+                <option value="customer">customer</option>
+            </select>
+         </div>
     <div class="clearfix">
-    <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
      </div>
   </form>
