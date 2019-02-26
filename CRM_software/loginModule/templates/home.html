@@ -24,10 +24,13 @@
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li>
     </ul>
-
+ <form align="right" class="form-inline" action="login/"> {% csrf_token %}
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login!</button>
+      </form>
+      <br>
       <form align="right" class="form-inline" action="signup.html"> {% csrf_token %}
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Signup</button>
-    </form>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Signup</button>
+      </form>
   </div>
 </nav>
 
