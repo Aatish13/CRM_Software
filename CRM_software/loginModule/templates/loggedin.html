@@ -4,5 +4,17 @@
 
 	<h2> Welcome {{full_name}} you are logged in! </h2>
 
+    {% if user %}
+    <ul>
+      {% for users in user %}
+      <li>
+	 {{ users.user_name }}, {{users.user_type}}
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>Student not found!</p>
+    {% endif %}
 	<p> Click <a href="/login/logout/" >to logout </a></p>
 {% endblock %}
