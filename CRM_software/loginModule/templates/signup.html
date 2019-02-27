@@ -18,13 +18,17 @@
   width: 80%; /* Could be more or less, depending on screen size */
 }
 </style>
-<center>
-  <h2>Sign up</h2>
-</center>
-<form method="post" class="modal-content">
-    {% csrf_token %}
-     <div class="container">
-    {{ form.as_p }}
+<div class="signupwrapper fadeInDown">
+  <div id="signupformContent">
+
+        <div class="fadeIn first">
+      <!--<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />-->
+        <h1>C R M<br></h1><h2>SignUp Dachboard</h2>
+        </div>
+        <form method="post" class="modal-content">
+        {% csrf_token %}
+        <div class="container">
+            {{ form.as_p }}
 
          <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -41,4 +45,6 @@
     </div>
      </div>
   </form>
-{% endblock %}
+  </div>
+</div>
+      {% endblock %}
