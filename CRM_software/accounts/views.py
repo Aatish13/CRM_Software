@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
-from loginModule.forms import SignUpForm
+from accounts.forms import SignUpForm
 from django.template.context_processors import csrf
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
-from loginModule.models import UserType
+from accounts.models import UserType
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 def home(request):
@@ -40,10 +40,10 @@ def login(request):
 	c.update(csrf(request))
 	return render_to_response('login.html', c)
 
-@login_required(login_url = '/login/login/')
+@login_required(login_url = '/accounts/login/')
 def loggedin(request):
 	if request.user.is_authenticated:
-		return render_to_response('loggedin.html', {"full_name": request.user.username })
+		return render_to_response('loggedin.html', {"full_name": request.user.username})
 	else:
 		return HttpResponseRedirect('/login/login/')
 
@@ -68,7 +68,7 @@ def auth_view(request):
 		else:
 			return render_to_response('errorpage.html', {'user': u})
 	else:
-		return HttpResponseRedirect('/login/invalidlogin/')
+		return HttpResponseRedirect('/accounts/invalidlogin/')
 
 
 def logout(request):

@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class LoginmoduleConfig(AppConfig):
-    name = 'loginModule'
+    name = 'accounts'

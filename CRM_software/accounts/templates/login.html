@@ -14,8 +14,8 @@
         <h1>C R M<br></h1><h2>Login Dashboard<h2>
     </div>
 
-    <!-- Login demo git Form -->
-    <form action="/login/auth/" method = "post">{% csrf_token %}
+    <!-- Login  Form -->
+    <form action="/accounts/auth/" method = "post">{% csrf_token %}
       <input type="text" id="login" class="fadeIn second" name="username" placeholder="username">
       <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
