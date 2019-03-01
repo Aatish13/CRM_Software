@@ -9,6 +9,8 @@ from django.shortcuts import render_to_response
 from accounts.models import UserType
 from django.contrib import auth
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
+
 def home(request):
 	return render_to_response('home.html')
 
@@ -25,11 +27,15 @@ def register (request):
 		if form.is_valid():
 			user_type = request.POST.get('user_type','')
 			user_name = request.POST.get('username', '')
-			print(user_name,user_type)
+			print(user_type)
 			form.save()
-			u = UserType(user_type=user_type,user_name=user_name)
+
+			t = User.objects.get(username=user_name)
+			u = UserType.objects.get(user_id=t.id)
+			u.user_type=user_type
+			u.user_name=user_name
 			u.save()
-			return render(request,'login.html')
+			return render_to_response('login.html',{"username":user_name,"password":request.POST.get('password', '')})
 	else:
 		form = SignUpForm()
 	args = {'form': form}
@@ -55,9 +61,9 @@ def auth_view(request):
 	username = request.POST.get('username', '')
 	password = request.POST.get('password', '')
 	user = auth.authenticate(username=username, password=password)
-
+	print(user)
 	if user is not None:
-		auth.login(request, user)
+		auth.login(request,user)
 		u = UserType.objects.filter(user_name=username)
 		if u[0].user_type=='manager':
 			return render_to_response('loggedin.html', {'user': u})
