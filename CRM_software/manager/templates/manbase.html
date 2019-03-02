@@ -1,37 +1,40 @@
+{% load staticfiles%}
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="utf-8">
         <title>C R M Portal</title>
-         {% load static %}
+
         <link rel="stylesheet" type="text/css" href="{% static 'accounts/style.css' %}" />
-        {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'accounts/bootstrap.css' %}" />
-         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'accounts/bootstrap.min.css' %}" />
-        {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'accounts/bootstrap-grid.css' %}" />
-        {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'accounts/bootstrap-grid.min.css' %}" />
-        {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'accounts/bootstrap-reboot.css' %}" />
-        {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'accounts/bootstrap-reboot.min.css' %}" />
-         {% load staticfiles%}
-         <script src="{% static 'js/bootstrap.min.js' %}"></script>
-        {% load  staticfiles %}
-        <script src="{% static 'js/bootstrap.js}"></script>
-        {% load  staticfiles %}
-        <script src="{% static 'js/bootstrap.bundle.min.js}"></script>
-         {% load  staticfiles %}
-        <script src="{% static 'js/bootstrap.bundle.js}"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+    </style>
 
     </head>
     <body>
+
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" >
 
   <a class="navbar-brand" href="">D A S H B O A R D</a>
@@ -48,13 +51,13 @@
         <a class="nav-link" href="/manager/employees">Employees</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Customers</a>
+        <a class="nav-link" href="/manager/customers">Customers</a>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="#">Products</a>
+        <a class="nav-link" href="/manager/products">Products</a>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="#">Register product</a>
+        <a class="nav-link" href="/manager/registerProduct">Register product</a>
       </li>
     </ul>
      <div class="d-flex ml-auto justify-content-end">
@@ -64,8 +67,17 @@
       </div>
   </div>
 </nav>
+
 	{% block content %}
 
 	{% endblock %}
+
+     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     </body>
 </html>

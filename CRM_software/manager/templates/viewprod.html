@@ -1,0 +1,26 @@
+{% extends 'manbase.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+<div class="accordion" id="accordionExample">
+  {%for pro in product_list %}
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{pro.name}}" aria-expanded="false" aria-controls='{{pro.name}}'>
+         {{pro.id}}  {{pro.name}}
+        </button>
+      </h2>
+    </div>
+    <div id='{{pro.name}}' class="collapse" aria-labelledby="{{pro.name}}" data-parent="#accordionExample">
+      <div class="card-body">
+        {{pro.description}}
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}
