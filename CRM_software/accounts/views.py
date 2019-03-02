@@ -66,7 +66,7 @@ def auth_view(request):
 		auth.login(request,user)
 		u = UserType.objects.filter(user_name=username)
 		if u[0].user_type=='manager':
-			return render_to_response('loggedin.html', {'user': u})
+			return HttpResponseRedirect('/manager/dashboard')
 		elif u[0].user_type=='employee':
 			return HttpResponseRedirect('/employee/dashboard')
 		elif u[0].user_type=='customer':
