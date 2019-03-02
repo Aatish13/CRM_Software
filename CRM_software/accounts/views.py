@@ -68,7 +68,7 @@ def auth_view(request):
 		if u[0].user_type=='manager':
 			return render_to_response('loggedin.html', {'user': u})
 		elif u[0].user_type=='employee':
-			return render_to_response('loggedin.html',{'user':u})
+			return HttpResponseRedirect('/employee/dashboard')
 		elif u[0].user_type=='customer':
 			return render_to_response('loggedin.html', {'user': u})
 		else:
