@@ -46,6 +46,10 @@ def login(request):
 	c.update(csrf(request))
 	return render_to_response('login.html', c)
 
+def info(request):
+	uid=User.objects.get(id=request.user.id)
+	return render_to_response('accountdetails.html',{"user":uid})
+
 @login_required(login_url = '/accounts/login/')
 def loggedin(request):
 	if request.user.is_authenticated:
