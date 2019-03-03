@@ -3,15 +3,18 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-
-
+<br>
+<div class="container">
+  <div class="card">
+  <h5 class="card-header">Products</h5>
+  <div class="card-body">
 <div class="accordion" id="accordionExample">
   {%for pro in product_list %}
   <div class="card">
     <div class="card-header" id="headingOne">
       <h2 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{pro.name}}" aria-expanded="false" aria-controls='{{pro.name}}'>
-         {{pro.id}}  {{pro.name}}
+        <button class="btn " type="button" data-toggle="collapse" data-target="#{{pro.name}}" aria-expanded="false" aria-controls='{{pro.name}}'>
+        <h6> {{pro.id}}  {{pro.name}}</h6>
         </button>
       </h2>
     </div>
@@ -23,4 +26,7 @@
   </div>
 {% endfor %}
 </div>
+    </div>
+    </div>
+  </div>
 {% endblock %}

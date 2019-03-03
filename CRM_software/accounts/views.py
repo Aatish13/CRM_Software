@@ -50,6 +50,15 @@ def info(request):
 	uid=User.objects.get(id=request.user.id)
 	return render_to_response('accountdetails.html',{"user":uid})
 
+def update(request):
+	if request.method == 'GET':
+		u=User.objects.get(id=request.user.id)
+		u.first_name=request.GET.get('first_name','')
+		u.last_name = request.GET.get('last_name', '')
+		u.email = request.GET.get('email', '')
+		u.save()
+	return render(request,'accountdetails.html')
+
 @login_required(login_url = '/accounts/login/')
 def loggedin(request):
 	if request.user.is_authenticated:

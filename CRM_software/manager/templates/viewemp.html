@@ -3,15 +3,18 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-
-
+<br>
+<div class="container">
+  <div class="card">
+  <h5 class="card-header">Employees</h5>
+  <div class="card-body">
 <div class="accordion" id="accordionExample">
   {%for emp in employee_list %}
   <div class="card">
     <div class="card-header" id="headingOne">
       <h2 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{emp.username}}" aria-expanded="false" aria-controls='{{emp.username}}'>
-         {{emp.id}}  {{emp.username}}
+        <button class="btn" type="button" data-toggle="collapse" data-target="#{{emp.username}}" aria-expanded="false" aria-controls='{{emp.username}}'>
+          <h6>{{emp.first_name}}  {{emp.last_name}}</h6>
         </button>
       </h2>
     </div>
@@ -23,4 +26,7 @@
   </div>
 {% endfor %}
 </div>
+    </div>
+    </div>
+  </div>
 {% endblock %}

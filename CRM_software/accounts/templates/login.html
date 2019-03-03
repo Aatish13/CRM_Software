@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 {% block content %}
+ <link rel="stylesheet" type="text/css" href="{% static 'accounts/style.css' %}" />
 	{% if form.errors %}
 		<p class="error"> Invalid Username or Password </p>
 	{% endif %}
