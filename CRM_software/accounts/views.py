@@ -46,10 +46,13 @@ def login(request):
 	c.update(csrf(request))
 	return render_to_response('login.html', c)
 
+@login_required(login_url = '/accounts/login/')
 def info(request):
 	uid=User.objects.get(id=request.user.id)
 	return render_to_response('accountdetails.html',{"user":uid})
 
+
+@login_required(login_url = '/accounts/login/')
 def update(request):
 	if request.method == 'GET':
 		u=User.objects.get(id=request.user.id)
