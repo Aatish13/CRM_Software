@@ -5,6 +5,16 @@
 	{% if form.errors %}
 		<p class="error"> Invalid Username or Password </p>
 	{% endif %}
+<!--<div class="jumbotron jumbotron-fluid">-->
+  <!--<div class="container">-->
+    <!--<div id="formContent">-->
+<!--<form action="/accounts/auth/" method = "post">{% csrf_token %}-->
+      <!--<input type="text" id="login" class="fadeIn second" name="username" placeholder="username">-->
+      <!--<input type="password" id="password" class="fadeIn third" name="password" placeholder="password">-->
+      <!--<input type="submit" class="fadeIn fourth" value="Log In">-->
+<!--</form>-->
+  <!--</div>-->
+<!--</div>-->
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
@@ -12,10 +22,9 @@
     <!-- Icon -->
     <div class="fadeIn first">
       <!--<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />-->
-        <h1>C R M<br></h1><h2>Login Dashboard<h2>
+        <h3>A Q U I~S A L E S</h3><h2>Log in to your AQUI~SALES account</h2>
     </div>
 
-    <!-- Login  Form -->
     <form action="/accounts/auth/" method = "post">{% csrf_token %}
       <input type="text" id="login" class="fadeIn second" name="username" placeholder="username">
       <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">

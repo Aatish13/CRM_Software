@@ -81,6 +81,7 @@ def auth_view(request):
 	if user is not None:
 		auth.login(request,user)
 		u = UserType.objects.filter(user_name=username)
+		request.session['user_type'] = u[0].user_type
 		if u[0].user_type=='manager':
 			return HttpResponseRedirect('/manager/dashboard')
 		elif u[0].user_type=='employee':
