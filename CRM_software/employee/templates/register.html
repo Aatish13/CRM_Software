@@ -1,0 +1,51 @@
+{% extends 'empbase.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<style>
+
+.container {
+  padding: 16px;
+}
+/* The Modal (background) */
+
+  /* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+</style>
+<input type="hidden" name="username" value="{{request.GET.username}}">
+<div class="signupwrapper fadeInDown">
+  <div id="signupformContent">
+
+        <div class="fadeIn first">
+      <!--<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />-->
+        <h1>C R M<br></h1><h2>Customer Registration Form</h2>
+        </div>
+        <form method="post" class="modal-content">
+        {% csrf_token %}
+        <div class="container">
+            {{ form.as_p }}
+
+         <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Select Product</label>
+            </div>
+             <select class="custom-select" id="inputGroupSelect01" name="s_product">
+                {%for product in pro%}
+                  <option value="{{product.name}}">ProductName:-{{product.name}}        price:-{{product.price}}</option>
+                {%endfor%}
+            </select>
+         </div>
+    <div class="clearfix">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+     </div>
+  </form>
+  </div>
+</div>
+      {% endblock %}

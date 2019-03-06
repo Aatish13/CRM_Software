@@ -3,5 +3,55 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1> ststics</h1>
+<br><br>
+<!--<div class="card" style="width: 18rem;background-color: #fdf5e6">
+	{%load static%}
+  <img src="{% static 'images/reunion.png' %}" class="card-img-top"/>
+  <div class="card-body">
+    <h3><p class="card-text">Your total customer is:-{{count}}</p></h3>
+  </div>
+</div>
+<br><br>-->
+<h1 aligh='center'>Your Report</h1>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<canvas id="lineChart" width="400" height="100"></canvas>
+<script>
+	
+  //line
+  var ctxL = document.getElementById("lineChart").getContext('2d');
+  var myLineChart = new Chart(ctxL, {
+    type: 'line',
+    data: {
+      labels: ["January", "February", "March", "April", "May", "June", "July","August","September","October","November","December"],
+      datasets: [{
+          label: "My First dataset",
+          data: {{data}},
+          backgroundColor: [
+            'rgba(0, 137, 132, .2)',
+          ],
+          borderColor: [
+            'rgba(0, 10, 130, .7)',
+          ],
+          borderWidth: 2
+        }]
+        /*{
+          label: "My Second dataset",
+          data: [28, 48, 40, 19, 86, 27, 90],
+          backgroundColor: [
+            'rgba(0, 137, 132, .2)',
+          ],
+          borderColor: [
+            'rgba(0, 10, 130, .7)',
+          ],
+          borderWidth: 2
+        }*/
+      //]
+    },
+    options: {
+      responsive: true
+    }
+  });
+
+</script>
+<input type="hidden" name="username" value="{{request.user.username}}">
 {% endblock %}

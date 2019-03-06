@@ -1,0 +1,26 @@
+{% extends 'empbase.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+<div class="accordion" id="accordionExample">
+  {%for ob in ob %}
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{ob.c_name}}" aria-expanded="false" aria-controls='{{ob.c_name}}'>
+         {{ob.id}}  {{ob.c_name}}
+        </button>
+      </h2>
+    </div>
+    <div id='{{ob.c_name}}' class="collapse" aria-labelledby="{{ob.c_name}}" data-parent="#accordionExample">
+      <div class="card-body">
+        {{ob.r_date}}
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}

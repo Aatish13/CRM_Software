@@ -5,6 +5,7 @@ from django.shortcuts import render_to_response
 from django.contrib.auth.models import User
 from accounts.models import UserType
 from django.core.mail import send_mail
+from employee.models import employee_customer
 # Create your views here.
 
 
@@ -25,7 +26,8 @@ def display_employees(request):
             u= User.objects.filter(id=emp.user_id)
             employee=set(employee).union(set(u))
         print(employee)
-        return render(request,'viewemp.html',{"employee_list":employee})
+        sales= employee_customer.objects.all()
+        return render(request,'viewemp.html',{"employee_list":employee ,"sales_list":sales})
     else:
         message = "Login in as manager to access this page."
         return render(request, 'error.html', {'message': message})
@@ -63,7 +65,7 @@ def register_product(request):
             print(pname,pprice,pdescription)
             p=Product(name=pname,price=pprice,description=pdescription)
             p.save()
-            send_mail('Testing mail'+pname, 'This is an auto generated mail product added'+pname, 'adchaudhari70@outlook.com', ['adchaudhari70.ac@gmail.com'],fail_silently=False)
+           # send_mail('Testing mail'+pname, 'This is an auto generated mail product added'+pname, 'adchaudhari70@outlook.com', ['adchaudhari70.ac@gmail.com'],fail_silently=False)
         return render(request, 'productform.html')
     else:
         message="Login in as manager to access this page."
