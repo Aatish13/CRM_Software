@@ -12,7 +12,8 @@ from employee.models import employee_customer
 @login_required(login_url = '/accounts/login/')
 def dashboard(request):
     if request.session['user_type']=='manager':
-        return render(request,'mandashboard.html')
+        data = [0, 0, 2, 3, 1, 0, 0, 1, 0, 0, 0, 0]
+        return render(request,'mandashboard.html',{"data":data})
     else:
         message="Login in as manager to access this page."
         return render(request,'error.html',{'message':message})
