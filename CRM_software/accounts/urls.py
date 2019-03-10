@@ -9,6 +9,8 @@ urlpatterns = [
     url('login', views.login),
     url('info', views.info),
     url('update', views.update),
+    url('changePass', views.changePass),
+    url('processChange',views.processChange),
     url(r'^auth/$', views.auth_view),
     url(r'^logout/$', views.logout),
     url(r'^loggedin/$', views.loggedin),

@@ -11,19 +11,45 @@
   {%for emp in employee_list %}
   <div class="card">
     <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn" type="button" data-toggle="collapse" data-target="#e{{emp.id}}" aria-expanded="false" aria-controls='e{{emp.id}}'>
-          <h6>{{emp.first_name}}  {{emp.last_name}}</h6>
+      <div class="d-flex ml-auto justify-content-end">
+
+        <button class="btn dropdown-toggle" type="button" data-toggle="collapse" data-target="#e{{emp.id}}" aria-expanded="false" aria-controls='e{{emp.id}}'>
+          {{emp.first_name}}  {{emp.last_name}}
         </button>
-      </h2>
+        <div class="btn-group ml-auto btn-group-sm" role="group" aria-label="Basic example">
+  <button type="submit" class="btn btn-info"> Profile </button>
+  <button type="submit" class="btn btn-info">Reports</button>
+  <button type="submit" class="btn btn-info ">Customers</button>
+</div>
+      </div>
     </div>
     <div id='e{{emp.id}}' class="collapse" aria-labelledby="e{{emp.id}}" data-parent="#accordionExample">
       <div class="card-body">
-        {%for sales in sales_list%}
-          {% if sales.e_id == emp.id %}
-        <h2>{{sales.id}} {{sales.c_name}}</h2>
-        {% endif %}
+
+        <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Customer</th>
+              <th>Product</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+          {%for sal in sales_list%}
+           {% if sal.e_id == emp.id %}
+            <tr>
+              <td>{{sal.r_date}}</td>
+              <td>{{sal.c_name}}</td>
+              <td>{{sal.product.name}}</td>
+              <td>{{sal.product.price}}</td>
+            </tr>
+          {% endif %}
         {% endfor %}
+          </tbody>
+        </table>
+      </div>
       </div>
     </div>
   </div>

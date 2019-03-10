@@ -10,7 +10,7 @@ from accounts.models import UserType
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
-
+from django.contrib.auth import authenticate
 def home(request):
 	return render_to_response('home.html')
 
@@ -19,6 +19,24 @@ def home(request):
 #     form_class = SignUpForm
 #     success_url = reverse_lazy('home/')
 #     template_name = 'signup.html'
+
+@login_required(login_url = '/accounts/login/')
+def changePass(request):
+	return render(request,'changePass.html')
+@login_required(login_url = '/accounts/login/')
+def processChange(request):
+	if request.method=='POST':
+		id=request.user.id
+		user_obj=User.objects.get(id=id)
+		old_pass=request.POST.get('old','')
+		user = authenticate(username=user_obj.username, password=old_pass)
+		if user is not None:
+			new_pass = request.POST.get('pwd1', '')
+			user_obj.set_password(new_pass)
+			user_obj.save()
+			#print("NEW PASSWORD"+new_pass)
+			#print("OLD PASSWORD"+old_pass)
+		return HttpResponseRedirect('/manager/dashboard')
 
 
 def register (request):

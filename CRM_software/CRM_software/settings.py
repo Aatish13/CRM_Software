@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'accounts',
     'employee',
     'manager',
-    'jchart'
+    'jchart',
+    'chartjs',
 ]
 
 MIDDLEWARE = [

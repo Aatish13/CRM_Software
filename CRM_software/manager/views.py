@@ -12,8 +12,13 @@ from employee.models import employee_customer
 @login_required(login_url = '/accounts/login/')
 def dashboard(request):
     if request.session['user_type']=='manager':
-        data = [0, 0, 2, 3, 1, 0, 0, 1, 0, 0, 0, 0]
-        return render(request,'mandashboard.html',{"data":data})
+        sales = employee_customer.objects.all()
+        for sal in sales:
+            print(sal.c_name,sal.product.price,sal.r_date.month,sal.r_date.year)
+        #t = employee_customer.objects.raw(
+         #   "SELECT COUNT(id) as c,id,r_date FROM `employee_employee_customer` GROUP by month(r_date),e_id ")
+        data = [299, 3000, 2000, 1000, 1111, 111,2222, 5499,2222]
+        return render(request,'mandashboard.html',{"data":data,"sales":sales})
     else:
         message="Login in as manager to access this page."
         return render(request,'error.html',{'message':message})
