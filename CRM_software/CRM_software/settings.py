@@ -94,8 +94,8 @@ DATABASES = {
         #       'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'CRMdatabase',  # Name of the database*
-        'USER': 'root',  # user name for the database
-        'PASSWORD': '',  # password
+        'USER': 'ce1',  # user name for the database
+        'PASSWORD': 'ce1',  # password
         'HOST': 'localhost',  # IP address of the database
         'PORT': '3306',  # port number of database server
 

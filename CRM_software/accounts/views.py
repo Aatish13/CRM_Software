@@ -9,8 +9,10 @@ from django.shortcuts import render_to_response
 from accounts.models import UserType
 from django.contrib import auth
 from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+
 def home(request):
 	return render_to_response('home.html')
 
@@ -59,6 +61,30 @@ def register (request):
 	args = {'form': form}
 	return render(request, 'signup.html', args)
 
+
+@login_required(login_url = '/accounts/login/')
+def changePass(request):
+	return render_to_response('changePass.html')
+@login_required(login_url = '/accounts/login/')
+def processChange(request):
+	if request.method=='POST':
+		id=request.user.id
+		user_obj=User.objects.get(id=id)
+		old_pass=request.POST.get('old','')
+		user = authenticate(username=user_obj.username, password=old_pass)
+		if user is not None:
+			new_pass = request.POST.get('pwd1', '')
+			user_obj.set_password(new_pass)
+			user_obj.save()
+			#print("NEW PASSWORD"+new_pass)
+			#print("OLD PASSWORD"+old_pass)
+		return HttpResponseRedirect('/manager/dashboard')
+
+
+
+
+
+
 def login(request):
 	c = {}
 	c.update(csrf(request))
@@ -103,7 +129,7 @@ def auth_view(request):
 		if u[0].user_type=='manager':
 			return HttpResponseRedirect('/manager/dashboard')
 		elif u[0].user_type=='employee':
-			return HttpResponseRedirect('/employee/dashboard')
+			return HttpResponseRedirect('/employee/dashboard?username='+str(u[0].user_name))
 		elif u[0].user_type=='customer':
 			return render_to_response('loggedin.html', {'user': u})
 		else:

@@ -8,6 +8,8 @@ urlpatterns = [
     url('home',views.home),
     url('login', views.login),
     url('info', views.info),
+    url('changePass', views.changePass),
+    url('processChange',views.processChange),
     url('update', views.update),
     url('changePass', views.changePass),
     url('processChange',views.processChange),

@@ -14,25 +14,24 @@ from accounts.models import UserType
 def dashboard(request):
 	a=0
 	t=[]
-	data=[]
+	data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	username=request.GET.get('username','')
 	eob=UserType.objects.filter(user_name=username).exists()
 	if not eob:
 		e_instance = employee.objects.create(e_name=username)
-		data=[0,0,0,0,0,0,0,0,0,0,0,0]
 	else:
 		v=User.objects.filter(username=username)
 		eid=v[0].id
-		#t=employee_customer.objects.filter(e_id=eid)
-		#t=employee_customer.objects.raw("SELECT COUNT(id) as c,id,r_date FROM `employee_employee_customer` GROUP by month(r_date),e_id HAVING e_id="+str(eid))
-		#str1=str(t[0].r_date)
-		#s=int(str1[5:7])
-		#j=s-1
+		t=employee_customer.objects.filter(e_id=eid)
+		t=employee_customer.objects.raw("SELECT COUNT(id) as c,id,r_date FROM `employee_employee_customer` GROUP by month(r_date),e_id HAVING e_id="+str(eid))
+		str1=str(t[0].r_date)
+		s=int(str1[5:7])
+		j=s-1
 		data=[0,0,0,0,0,0,0,0,0,0,0,0]
-		#for i in t:
-		#	data[j]=i.c
-		#	j=j+1
-		#print(data)
+		for i in t:
+			data[j]=i.c
+			j=j+1
+		print(data)
 	arg={'username':request.GET.get('username',''),'count':a,'data':data}
 	return render_to_response('empdashboard.html',arg)
 
