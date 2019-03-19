@@ -97,6 +97,22 @@ def info(request):
 
 
 @login_required(login_url = '/accounts/login/')
+def delete(request):
+	acno = request.POST.get("empid", '')
+	uid = User.objects.get(id=acno)
+	return render_to_response('confirmation.html',{"user":uid})
+
+
+
+
+@login_required(login_url = '/accounts/login/')
+def viewProfile(request):
+	acno=request.POST.get("empid",'')
+	uid=User.objects.get(id=acno)
+	print(uid)
+	return render(request,'viewinfo.html',{"employee":uid})
+
+@login_required(login_url = '/accounts/login/')
 def update(request):
 	if request.method == 'GET':
 		u=User.objects.get(id=request.user.id)

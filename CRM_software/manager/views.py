@@ -49,12 +49,13 @@ def display_employees(request):
 def display_customers(request):
     if request.session['user_type'] == 'manager':
         c = UserType.objects.filter(user_type="customer")
+        sales=employee_customer.objects.all()
         customers = set()
         for cus in c:
             u= User.objects.filter(id=cus.user_id)
             customers=set(customers).union(set(u))
-        print(customers)
-        return render(request, 'viewcust.html', {"customers_list":customers} )
+        print(customers,sales[0].c_name)
+        return render(request, 'viewcust.html', {"customers_list":customers,"sales_list":sales} )
     else:
         message="Login in as manager to access this page."
         return render(request,'error.html',{'message':message})

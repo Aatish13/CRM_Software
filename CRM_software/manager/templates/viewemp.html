@@ -17,8 +17,11 @@
           {{emp.first_name}}  {{emp.last_name}}
         </button>
         <div class="btn-group ml-auto btn-group-sm" role="group" aria-label="Basic example">
-  <button type="submit" class="btn btn-info"> Profile </button>
-  <button type="submit" class="btn btn-info">Reports</button>
+ <form method="post" action="/accounts/viewinfo">
+    <input type="hidden" name="empid" value='{{emp.id}}'>
+   <button type="submit" class="btn btn-info"> Profile </button>
+</form>
+   <button type="submit" class="btn btn-info">Reports</button>
   <button type="submit" class="btn btn-info ">Customers</button>
 </div>
       </div>
