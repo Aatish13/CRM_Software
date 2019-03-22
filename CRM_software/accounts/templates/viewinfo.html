@@ -8,9 +8,10 @@
   <div class="card-header">
  Account info.
   </div>
-  <form method="get" action="/accounts/delete" >
+  <form method="post" action="/accounts/delete" >
         {% csrf_token %}
       <br>
+      <input type="hidden" name="empid" value="{{employee.id}}">
       <div class="col-auto">
           <div class="input-group mb-2">
               <div class="input-group-prepend">

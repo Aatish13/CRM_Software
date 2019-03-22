@@ -73,6 +73,9 @@
       <br>
       <br>
 
+	{% if error %}
+		<p class="error"> {{error}}</p>
+	{% endif %}
 <center>
     <form action="/accounts/auth/" method = "post">{% csrf_token %}
       <input type="text"  id="login" class="fadeIn form-control second" name="username" placeholder="username">

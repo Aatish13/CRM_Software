@@ -10,6 +10,7 @@ urlpatterns = [
     url('viewinfo', views.viewProfile),
     url('info', views.info),
     url('delete', views.delete),
+    url('empcontroller', views.empcontroller),
     url('changePass', views.changePass),
     url('processChange',views.processChange),
     url('update', views.update),

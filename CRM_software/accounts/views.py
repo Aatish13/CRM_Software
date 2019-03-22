@@ -12,6 +12,8 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from employee.models import employee_customer
+from manager.views import dashboard
 
 def home(request):
 	return render_to_response('home.html')
@@ -64,7 +66,7 @@ def register (request):
 
 @login_required(login_url = '/accounts/login/')
 def changePass(request):
-	return render_to_response('changePass.html')
+	return render(request,'changePass.html')
 @login_required(login_url = '/accounts/login/')
 def processChange(request):
 	if request.method=='POST':
@@ -98,11 +100,27 @@ def info(request):
 
 @login_required(login_url = '/accounts/login/')
 def delete(request):
-	acno = request.POST.get("empid", '')
-	uid = User.objects.get(id=acno)
-	return render_to_response('confirmation.html',{"user":uid})
+	eid = request.POST.get("empid",'')
+	print(eid)
+	sales=employee_customer.objects.filter(e_id=eid)
+	superu=User.objects.filter(id=1)
+	print(superu[0].username)
+	for s in sales:
+		s.e = superu[0]
+		s.save()
+	ut=UserType.objects.filter(user_id=eid)
+	ut.delete()
+	uid = User.objects.filter(id=eid)
+	uid[0].delete()
+	return dashboard(request)
 
-
+@login_required(login_url = '/accounts/login/')
+def empcontroller(request):
+	ac=request.POST.get("action","")
+	if ac=="profile":
+		return viewProfile(request)
+	else:
+		return render(request,"viewemp.html")
 
 
 @login_required(login_url = '/accounts/login/')
@@ -127,11 +145,10 @@ def loggedin(request):
 	if request.user.is_authenticated:
 		return render_to_response('loggedin.html', {"full_name": request.user.username})
 	else:
-		return HttpResponseRedirect('/login/login/')
+		return HttpResponseRedirect('/acounts/login/')
 
 def invalidlogin(request):
-	return render_to_response('invalidlogin.html')
-
+	return render_to_response('invalidlogin.html',{"error":"enter valid username or password"})
 
 def auth_view(request):
 	username = request.POST.get('username', '')

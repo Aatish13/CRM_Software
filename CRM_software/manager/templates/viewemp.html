@@ -11,19 +11,20 @@
   {%for emp in employee_list %}
   <div class="card">
     <div class="card-header" id="headingOne">
-      <div class="d-flex ml-auto justify-content-end">
+      <div class="d-flex ml-auto">
 
         <button class="btn dropdown-toggle" type="button" data-toggle="collapse" data-target="#e{{emp.id}}" aria-expanded="false" aria-controls='e{{emp.id}}'>
           {{emp.first_name}}  {{emp.last_name}}
         </button>
-        <div class="btn-group ml-auto btn-group-sm" role="group" aria-label="Basic example">
- <form method="post" action="/accounts/viewinfo">
-    <input type="hidden" name="empid" value='{{emp.id}}'>
-   <button type="submit" class="btn btn-info"> Profile </button>
-</form>
-   <button type="submit" class="btn btn-info">Reports</button>
-  <button type="submit" class="btn btn-info ">Customers</button>
-</div>
+                 <form method="post" class="rounded-left ml-auto justify-content-end" action="/accounts/empcontroller">
+          <input type="hidden" name="empid" value='{{emp.id}}'>
+              <div class="btn-group ml-auto btn-group-sm " style="width:100%;" role="group" aria-label="Basic example">
+   <button type="submit" name="action" value="profile" class="btn btn-info rounded-left"> Profile </button>
+      <button type="submit"  name="action" value="reports" class="btn btn-info">Reports</button>
+  <button type="submit" name="action" value="customers" class="btn btn-info ">Customers</button>
+
+
+</div>          </form>
       </div>
     </div>
     <div id='e{{emp.id}}' class="collapse" aria-labelledby="e{{emp.id}}" data-parent="#accordionExample">
