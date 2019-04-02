@@ -1,0 +1,20 @@
+{% extends 'empbase.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<html>
+<head>
+	
+</head>
+<body>
+	{% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'accounts/style.css' %}" />
+	<form action="" method="post">
+	{% csrf_token %}
+		Username:-<input type="text" name="uname"><br>
+		Password:-<input type="text" name="pass">
+	</form>
+</body>
+ {%endblock%}

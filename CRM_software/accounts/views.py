@@ -14,7 +14,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from employee.models import employee_customer
 from manager.views import dashboard
-
+from employee.views import totalsale
 def home(request):
 	return render_to_response('home.html')
 
@@ -119,6 +119,8 @@ def empcontroller(request):
 	ac=request.POST.get("action","")
 	if ac=="profile":
 		return viewProfile(request)
+	if ac == "reports":
+		return totalsale(request)
 	else:
 		return render(request,"viewemp.html")
 
@@ -162,7 +164,8 @@ def auth_view(request):
 		if u[0].user_type=='manager':
 			return HttpResponseRedirect('/manager/dashboard')
 		elif u[0].user_type=='employee':
-			return HttpResponseRedirect('/employee/dashboard?username='+str(u[0].user_name))
+			request.session["username"]=u[0].user_name
+			return HttpResponseRedirect('/employee/dashboard')
 		elif u[0].user_type=='customer':
 			return render_to_response('loggedin.html', {'user': u})
 		else:

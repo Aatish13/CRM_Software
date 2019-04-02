@@ -1,8 +1,20 @@
 {% extends 'empbase.html' %}
 
-{% block title %}Sign Up{% endblock %}
+{% block title %}Register{% endblock %}
 
 {% block content %}
+<!--<br>
+<table align="center" cellspacing="10">
+  <tr>
+    <td>
+      <form action="#">
+        <button type="submit" class="btn btn-primary btn-lg" align='center'>Exsisting Customer</button>
+      </form>
+    </td>
+  </tr>
+</table>-->
+{% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'accounts/style.css' %}" />
 <style>
 
 .container {
@@ -18,7 +30,6 @@
   width: 80%; /* Could be more or less, depending on screen size */
 }
 </style>
-<input type="hidden" name="username" value="{{request.GET.username}}">
 <div class="signupwrapper fadeInDown">
   <div id="signupformContent">
 
