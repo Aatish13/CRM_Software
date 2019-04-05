@@ -13,15 +13,15 @@
     <div class="card-header" id="headingOne">
       <div class="d-flex ml-auto">
 
-        <button class="btn dropdown-toggle" type="button" data-toggle="collapse" data-target="#e{{emp.id}}" aria-expanded="false" aria-controls='e{{emp.id}}'>
+        <h7 class="text-capitalize">
           {{emp.first_name}}  {{emp.last_name}}
-        </button>
+        </h7>
                  <form method="post" class="rounded-left ml-auto justify-content-end" action="/accounts/empcontroller">
           <input type="hidden" name="empid" value='{{emp.id}}'>
               <div class="btn-group ml-auto btn-group-sm " style="width:100%;" role="group" aria-label="Basic example">
    <button type="submit" name="action" value="profile" class="btn btn-info rounded-left"> Profile </button>
       <button type="submit"  name="action" value="reports" class="btn btn-info">Reports</button>
-  <button type="submit" name="action" value="customers" class="btn btn-info ">Customers</button>
+  <button type="button" name="action" value="customers" class="btn btn-info " data-toggle="collapse" data-target="#e{{emp.id}}" aria-expanded="false" aria-controls='e{{emp.id}}'>Customers</button>
 
 
 </div>          </form>

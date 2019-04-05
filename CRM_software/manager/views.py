@@ -15,17 +15,21 @@ def dashboard(request):
         salesData=[0]*13
         salesCount = [0] * 13
         sales = employee_customer.objects.all()
-        for sal in sales:
-            salesData[sal.r_date.month]=int(salesData[sal.r_date.month])+int(sal.product.price)
-            print(sal.c_name,sal.product.price,sal.r_date.month,sal.r_date.year)
-        print(sales[len(sales)-1].r_date.month)
-        salcount = employee_customer.objects.raw("SELECT count(id) as count,id,r_date,product_id FROM `employee_employee_customer` GROUP by month(r_date),year(r_date) ")
-        for x in salcount:
-            print(x.id,x.count,x.r_date,x.product.price)
-            salesCount[x.r_date.month]=x.count
-        data = [299, 3000, 2000, 1000, 1111, 111,2222, 5499,2222]
+        if len(sales)!=0:
+            for sal in sales:
+                salesData[sal.r_date.month]=int(salesData[sal.r_date.month])+int(sal.product.price)
+                print(sal.c_name,sal.product.price,sal.r_date.month,sal.r_date.year)
+            print(sales[len(sales)-1].r_date.month)
+            salcount = employee_customer.objects.raw("SELECT count(id) as count,id,r_date,product_id FROM `employee_employee_customer` GROUP by month(r_date),year(r_date) ")
+            for x in salcount:
+                print(x.id,x.count,x.r_date,x.product.price)
+                salesCount[x.r_date.month]=x.count
+            return render(request, 'mandashboard.html',
+                          {"data": salesCount[1:sales[len(sales) - 1].r_date.month + 1], "sales": sales,
+                           "salesData": salesData[1:sales[len(sales) - 1].r_date.month + 1]})
+        else:
+            return render(request,'mandashboard.html')
 
-        return render(request,'mandashboard.html',{"data":salesCount[1:sales[len(sales)-1].r_date.month+1],"sales":sales,"salesData":salesData[1:sales[len(sales)-1].r_date.month+1]})
     else:
         message="Login in as manager to access this page."
         return render(request,'error.html',{'message':message})
@@ -84,3 +88,34 @@ def register_product(request):
     else:
         message="Login in as manager to access this page."
         return render(request,'error.html',{'message':message})
+
+
+@login_required(login_url = '/accounts/login/')
+def sendEmailEmp(request):
+    if request.session['user_type'] == 'manager':
+        e = UserType.objects.filter(user_type="employee")
+        if request.method == 'POST':
+            print(request.POST.get("to", ""))
+            #for emp in e:
+                #send_mail(request.POST.get("subject",""),request.POST.get("body",""),request.user.email, [e.user.email], fail_silently=False)
+            return render(request, "composeEmail.html", {"list": e})
+        else:
+            return render(request,"composeEmail.html",{"list":e})
+    else:
+        message = "Login in as manager to access this page."
+        return render(request, 'error.html', {'message': message})
+
+@login_required(login_url = '/accounts/login/')
+def sendEmailCus(request):
+    if request.session['user_type'] == 'manager':
+        c = UserType.objects.filter(user_type="customer")
+        if request.method == 'POST':
+            print(request.POST.get("to",""))
+            #for cus in c:
+                #send_mail(request.POST.get("subject",""),request.POST.get("body",""),request.user.email, [c.user.email], fail_silently=False)
+            return render(request, "composeEmail.html", {"list": c,"msg":"email sent"})
+        else:
+            return render(request,"composeEmail.html",{"list":c})
+    else:
+        message = "Login in as manager to access this page."
+        return render(request, 'error.html', {'message': message})
