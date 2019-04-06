@@ -98,7 +98,7 @@ def delete(request):
 	eid = request.POST.get("empid",'')
 	print(eid)
 	sales=employee_customer.objects.filter(e_id=eid)
-	superu=User.objects.filter(id=1)
+	superu=User.objects.filter(id=request.user.id)
 	print(superu[0].username)
 	for s in sales:
 		s.e = superu[0]
@@ -140,7 +140,9 @@ def update(request):
 @login_required(login_url = '/accounts/login/')
 def loggedin(request):
 	if request.user.is_authenticated:
-		return render_to_response('loggedin.html', {"full_name": request.user.username})
+		sales=employee_customer.objects.filter(c_name=request.user.username)
+		print(request.user.username,sales)
+		return render(request,'loggedin.html', {"sales":sales})
 	else:
 		return HttpResponseRedirect('/acounts/login/')
 
@@ -163,7 +165,7 @@ def auth_view(request):
 			request.session["username"]=u[0].user_name
 			return HttpResponseRedirect('/employee/dashboard')
 		elif u[0].user_type=='customer':
-			return render_to_response('loggedin.html', {'user': u})
+			return loggedin(request)
 		else:
 			return render_to_response('errorpage.html', {'user': u})
 	else:

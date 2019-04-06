@@ -65,7 +65,6 @@ def display_customers(request):
         for cus in c:
             u= User.objects.filter(id=cus.user_id)
             customers=set(customers).union(set(u))
-        print(customers,sales[0].c_name)
         return render(request, 'viewcust.html', {"customers_list":customers,"sales_list":sales} )
     else:
         message="Login in as manager to access this page."
