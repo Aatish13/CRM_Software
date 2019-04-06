@@ -135,7 +135,7 @@ def update(request):
 		u.last_name = request.GET.get('last_name', '')
 		u.email = request.GET.get('email', '')
 		u.save()
-	return render(request,'accountdetails.html')
+	return info(request)
 
 @login_required(login_url = '/accounts/login/')
 def loggedin(request):

@@ -3,18 +3,35 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
-
-<html>
-<head>
-	
-</head>
-<body>
-	{% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'accounts/style.css' %}" />
-	<form action="" method="post">
+ <div class="card">
+    <div class="card-header" >
+		<h5 >Register sales</h5>
+	</div>
+	<form method="post" class="card-body">
 	{% csrf_token %}
-		Username:-<input type="text" name="uname"><br>
-		Password:-<input type="text" name="pass">
+		<div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Select Customer</label>
+            </div>
+             <select class="custom-select" id="inputGroupSelect01" name="customer">
+                {%for c in cus%}
+                  <option value="{{c.user.username}}">UserName:-{{c.user.username}}</option>
+                {%endfor%}
+            </select>
+         </div><br>
+		<div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Select Product</label>
+            </div>
+             <select class="custom-select" id="inputGroupSelect01" name="s_product">
+                {%for product in pro%}
+                  <option value="{{product.name}}">ProductName:-{{product.name}}        price:-{{product.price}}</option>
+                {%endfor%}
+            </select>
+         </div><br>
+         <div class="clearfix">
+        	<button type="submit" class="btn btn-primary">Book</button>
+    	</div>
 	</form>
-</body>
+ </div>
  {%endblock%}

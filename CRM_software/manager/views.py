@@ -24,9 +24,16 @@ def dashboard(request):
             for x in salcount:
                 print(x.id,x.count,x.r_date,x.product.price)
                 salesCount[x.r_date.month]=x.count
+            # for leads
+            allLeads = UserType.objects.filter(user_type='customer')
+            hotleads = employee_customer.objects.raw("SELECT count(id) as count, id,c_name FROM `employee_employee_customer` GROUP by c_name")
+            hot =len(hotleads)
+            warm =len(allLeads)-hot
+            # for lead in allLeads:
+            #     if allLeads.user.username not
             return render(request, 'mandashboard.html',
                           {"data": salesCount[1:sales[len(sales) - 1].r_date.month + 1], "sales": sales,
-                           "salesData": salesData[1:sales[len(sales) - 1].r_date.month + 1]})
+                           "salesData": salesData[1:sales[len(sales) - 1].r_date.month + 1],"hotlead":hot,"warmlead":warm})
         else:
             return render(request,'mandashboard.html')
 

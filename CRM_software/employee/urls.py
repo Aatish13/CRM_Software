@@ -7,6 +7,5 @@ urlpatterns = [
     url('customer',views.customer),
     url('register',views.register),
     url('totalsale',views.totalsale),
-    url('info',views.info),
     url('existing',views.existing)
 ]

@@ -11,7 +11,6 @@ from datetime import datetime
 
 # Create your views here.
 @login_required(login_url = '/accounts/login/')
-
 def dashboard(request):
 	t=[]
 	l1=[]
@@ -52,6 +51,7 @@ def dashboard(request):
 	arg={'data':data,'user':v[0],'list':l1}
 	return render(request,'empdashboard.html',arg)
 
+@login_required(login_url = '/accounts/login/')
 def customer(request):
 	username=request.session.get('username')
 	ob=User.objects.filter(username=username)
@@ -59,6 +59,7 @@ def customer(request):
 	arg={'ob':ecob,'user':ob[0]}
 	return render(request,'customer.html',arg)
 
+@login_required(login_url = '/accounts/login/')
 def register(request):
 	#print(request.session.get('username'))
 	e_username=request.session.get('username')
@@ -89,6 +90,7 @@ def register(request):
 		arg={'form':form,'pro':p,'user':ob[0]}
 		return render(request,'register.html',arg)
 
+@login_required(login_url = '/accounts/login/')
 def totalsale(request):
 	if request.POST.get("empid",''):
 		acno=request.POST.get("empid",'')
@@ -121,21 +123,18 @@ def totalsale(request):
 	arg={'slist':l,'ylist':ly,'user':eob}
 	return render(request,'totalsale.html',arg)
 
-def info(request):
-	e_username=request.session.get('username')
-	eob=User.objects.get(username=e_username)
-	arg={'user':eob}
-	if request.method == 'POST':
-		u=User.objects.get(id=request.user.id)
-		u.first_name=request.POST.get('first_name','')
-		u.last_name = request.POST.get('last_name', '')
-		u.email = request.POST.get('email', '')
-		u.save()
-		return render(request,'employee/dashboard',arg)
-	else:
-		return render(request,'info.html',arg)
-
-
+@login_required(login_url = '/accounts/login/')
 def existing(request):
-	
-	return render(request,'existing.html')
+	if request.method=='POST':
+		eob=User.objects.get(username=request.session.get('username'))
+		pob=Product.objects.get(name=request.POST.get('s_product',''))
+		c=employee_customer(c_name=request.POST.get('customer',''))
+		c.e_id=eob.id
+		c.product_id=pob.id
+		c.save()
+		return HttpResponseRedirect('/employee/dashboard')
+	else :
+		p=Product.objects.all()
+		c=UserType.objects.filter(user_type='customer')
+		arg={'pro':p,'cus':c}
+		return render(request,'existing.html',arg)
