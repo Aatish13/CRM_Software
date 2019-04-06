@@ -50,7 +50,7 @@ def dashboard(request):
 		print(l1)
 	#print(data)
 	arg={'data':data,'user':v[0],'list':l1}
-	return render_to_response('empdashboard.html',arg)
+	return render(request,'empdashboard.html',arg)
 
 def customer(request):
 	username=request.session.get('username')
@@ -134,5 +134,8 @@ def info(request):
 		return render(request,'employee/dashboard',arg)
 	else:
 		return render(request,'info.html',arg)
+
+
 def existing(request):
+	
 	return render(request,'existing.html')

@@ -1,12 +1,13 @@
-{% extends 'empbase.html' %}
-
+{% extends request.session.basefile %}
 {% block title %}Register{% endblock %}
-
 {% block content %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-<h2>Total sells of Current year(Month-wise):-</h2>
+<div class="card">
+  <div class="card-header">
+  <h3>Total sells of Current year(Month-wise):-</h3>
+  </div>
 <canvas id="barChart" height="80" width="400"></canvas>
-
+</div>
 <script>
   //bar
   var ctxB = document.getElementById("barChart").getContext('2d');
@@ -59,9 +60,14 @@
     }
   });
 
-</script><br><br>
-<h2>Total sells Year-wise:-</h2>
+</script><br>
+
+<div class="card">
+  <div class="card-header">
+<h3>Total sells Year-wise:-</h3>
+  </div>
 <canvas id="barChart1" height="80" width="400"></canvas>
+  </div>
 <script>
   //bar
   var ctxB = document.getElementById("barChart1").getContext('2d');

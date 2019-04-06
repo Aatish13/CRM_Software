@@ -82,11 +82,6 @@ def processChange(request):
 			#print("OLD PASSWORD"+old_pass)
 		return HttpResponseRedirect('/manager/dashboard')
 
-
-
-
-
-
 def login(request):
 	c = {}
 	c.update(csrf(request))
@@ -95,7 +90,7 @@ def login(request):
 @login_required(login_url = '/accounts/login/')
 def info(request):
 	uid=User.objects.get(id=request.user.id)
-	return render_to_response('accountdetails.html',{"user":uid})
+	return render(request,'accountdetails.html',{"user":uid})
 
 
 @login_required(login_url = '/accounts/login/')
@@ -161,6 +156,7 @@ def auth_view(request):
 		auth.login(request,user)
 		u = UserType.objects.filter(user_name=username)
 		request.session['user_type'] = u[0].user_type
+		request.session['basefile'] = u[0].user_type+"base.html"
 		if u[0].user_type=='manager':
 			return HttpResponseRedirect('/manager/dashboard')
 		elif u[0].user_type=='employee':
@@ -176,5 +172,5 @@ def auth_view(request):
 
 def logout(request):
 	auth.logout(request)
-	return render_to_response('logout.html')
+	return render_to_response('home.html')
 # Create your views here.
