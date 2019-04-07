@@ -1,14 +1,6 @@
-{%extends "base.html" %}
-
+{% extends request.session.basefile %}
 {% block content %}
-<div class="container">
-<div class="container">
-    <center><h1 class="text-capitalize">Welcome {{request.user.first_name}}&nbsp;{{request.user.last_name}}
-    <form  action="/accounts/logout/"> {% csrf_token %}
-        <button class="btn btn-info my-2 my-sm-0" type="submit">Logout</button>
-      </form></h1></center>
 
-</div>
     <div class="container">
         <div class="card-header">
             <h2>Purchased products</h2>
@@ -37,8 +29,5 @@
         </table>
       </div>
     </div>
-    <center>
 
-    </center>
-</div>
 {% endblock %}
