@@ -2,12 +2,9 @@
 {% block title %}Register{% endblock %}
 {% block content %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-<div class="card">
-  <div class="card-header">
-  <h3>Total sells of Current year(Month-wise):-</h3>
-  </div>
+  <h3>Total sells of Current year(Month-wise):-</h3><br>
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
 <canvas id="barChart" height="80" width="400"></canvas>
-</div>
 <script>
   //bar
   var ctxB = document.getElementById("barChart").getContext('2d');
@@ -61,13 +58,10 @@
   });
 
 </script><br>
-
-<div class="card">
-  <div class="card-header">
-<h3>Total sells Year-wise:-</h3>
-  </div>
+</div>
+<h3>Total sells Year-wise:-</h3><br>
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
 <canvas id="barChart1" height="80" width="400"></canvas>
-  </div>
 <script>
   //bar
   var ctxB = document.getElementById("barChart1").getContext('2d');
@@ -110,4 +104,5 @@
     }
   });
 </script>
+</div>
 {% endblock %}

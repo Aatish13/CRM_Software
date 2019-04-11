@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <title>C R M Portal</title>
         <link rel="stylesheet" type="text/css" href="{% static 'accounts/sidebar.css' %}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo.png' %}" />
 
         <link rel="stylesheet" type="text/css" href="{% static 'accounts/bootstrap.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'accounts/bootstrap.min.css' %}" />
@@ -63,7 +64,7 @@
          <ul class="navbar-nav">
              <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <h7 class="text-uppercase">  {{user.first_name}} {{user.last_name}}</h7>
+            <h7 class="text-uppercase">  {{request.user.first_name}} {{request.user.last_name}}</h7>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/accounts/info">Profile</a>

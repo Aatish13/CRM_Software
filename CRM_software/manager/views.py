@@ -89,7 +89,11 @@ def register_product(request):
             print(pname,pprice,pdescription)
             p=Product(name=pname,price=pprice,description=pdescription)
             p.save()
-           # send_mail('Testing mail'+pname, 'This is an auto generated mail product added'+pname, 'adchaudhari70@outlook.com', ['adchaudhari70.ac@gmail.com'],fail_silently=False)
+            u = User.objects.all()
+            to=[]
+            for us in u:
+                to.append(us.email)
+            send_mail('New product '+pname, pdescription, 'adchaudhari70@outlook.com', to ,fail_silently=False)
         return render(request, 'productform.html')
     else:
         message="Login in as manager to access this page."
