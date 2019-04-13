@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
-from employee.models import employee,employee_customer
+from employee.models import employee_customer
 from django.contrib.auth.decorators import login_required
 from accounts.forms import SignUpForm
 from manager.models import Product

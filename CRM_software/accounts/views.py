@@ -58,9 +58,11 @@ def register (request):
 			u.user_name=user_name
 			u.save()
 			return render_to_response('login.html',{"username":user_name,"password":request.POST.get('password', '')})
+		else:
+			return render(request,'signup.html',{"msg":form.errors})
 	else:
 		form = SignUpForm()
-	args = {'form': form}
+	args = {'form': form,"msg":form.errors}
 	return render(request, 'signup.html', args)
 
 
@@ -81,11 +83,6 @@ def processChange(request):
 			#print("NEW PASSWORD"+new_pass)
 			#print("OLD PASSWORD"+old_pass)
 		return HttpResponseRedirect('/manager/dashboard')
-
-def login(request):
-	c = {}
-	c.update(csrf(request))
-	return render_to_response('login.html', c)
 
 @login_required(login_url = '/accounts/login/')
 def info(request):
@@ -148,6 +145,11 @@ def loggedin(request):
 
 def invalidlogin(request):
 	return render_to_response('invalidlogin.html',{"error":"enter valid username or password"})
+
+def login(request):
+	c = {}
+	c.update(csrf(request))
+	return render_to_response('login.html', c)
 
 def auth_view(request):
 	username = request.POST.get('username', '')

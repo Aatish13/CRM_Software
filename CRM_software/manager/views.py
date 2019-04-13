@@ -90,10 +90,10 @@ def register_product(request):
             p=Product(name=pname,price=pprice,description=pdescription)
             p.save()
             u = User.objects.all()
-            to=[]
-            for us in u:
-                to.append(us.email)
-            send_mail('New product '+pname, pdescription, 'adchaudhari70@outlook.com', to ,fail_silently=False)
+            # to=[]
+            # for us in u:
+            #     to.append(us.email)
+            # send_mail('New product '+pname, pdescription, 'adchaudhari70@outlook.com', to ,fail_silently=False)
         return render(request, 'productform.html')
     else:
         message="Login in as manager to access this page."
